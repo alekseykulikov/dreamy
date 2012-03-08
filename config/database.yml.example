@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: ''
+
+development:
+  <<: *default
+  database: dreamer_development
+
+test:
+  <<: *default
+  database: dreamer_test
+
+production:
+  <<: *default
+  database: dreamer

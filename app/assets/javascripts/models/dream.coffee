@@ -1,0 +1,1 @@
+class App.Models.Dream extends Backbone.Model

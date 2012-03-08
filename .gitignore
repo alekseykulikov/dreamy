@@ -1,0 +1,15 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore local database configuration
+/config/database.yml
+
+# Ignore all logfiles and tempfiles
+/log/*.log
+/tmp
+
+# OS X specific file
+.DS_Store
+
+# Ignore sprockets generated files
+public/assets/
