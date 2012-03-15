@@ -14,11 +14,9 @@
 ActiveRecord::Schema.define(:version => 20120125095231) do
 
   create_table "dreams", :force => true do |t|
-    t.integer  "usn"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.datetime "deleted_at"
   end
 
 end

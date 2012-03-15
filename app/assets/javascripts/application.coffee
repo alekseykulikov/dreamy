@@ -14,6 +14,6 @@
 #= require jquery_ujs
 #= require underscore
 #= require backbone
-#= require backbone.offline
+#= require backbone_offline
 #
 #= require dreamer

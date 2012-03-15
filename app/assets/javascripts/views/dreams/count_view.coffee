@@ -15,9 +15,9 @@ class App.Views.DreamsCount extends Backbone.View
     return this
 
   fullSync: (event) ->
-    App.dreams.storage.fullSync()
+    App.dreams.storage.sync.full()
     return false
 
   incrementalSync: (event) ->
-    App.dreams.storage.incrementalSync()
+    App.dreams.storage.sync.incremental()
     return false

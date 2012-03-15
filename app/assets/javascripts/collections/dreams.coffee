@@ -3,7 +3,7 @@ class App.Collections.Dreams extends Backbone.Collection
   url: '/api/dreams'
 
   initialize: ->
-    @storage = new Storage('dreams', this)
+    @storage = new Offline.Storage('dreams', this)
 
   comparator: (idea) ->
     (new Date(idea.get 'created_at')).getTime()
