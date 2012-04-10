@@ -1,0 +1,7 @@
+<div data-role="header" data-position="fixed">
+  <h1>My dreams (<%= @count %>)</h1>
+  <a href="#new" data-icon="plus" class="ui-btn-right new">New</a>
+</div><!-- /header -->
+
+<div data-role="content" id="content">
+</div><!-- /content -->

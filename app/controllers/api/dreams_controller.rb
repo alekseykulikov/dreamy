@@ -1,6 +1,4 @@
-class Api::DreamsController < ApplicationController
-  respond_to :json
-
+class Api::DreamsController < Api::ApiController
   def index
     dreams = Dream.all
     respond_with(dreams)

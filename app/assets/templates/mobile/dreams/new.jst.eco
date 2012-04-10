@@ -1,0 +1,7 @@
+<div data-role="header" data-position="fixed" id="menu">
+  <a href="#index" data-icon="back" class="back ui-btn-left">Back</a>
+  <h1>New Dream</h1>
+</div><!-- /header -->
+
+<div data-role="content" id="content">
+</div><!-- /content -->

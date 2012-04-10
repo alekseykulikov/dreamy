@@ -18,3 +18,10 @@
 #= require_self
 
 window.l = (value) -> console.log(value)
+
+window.App =
+  Models: {}
+  Collections: {}
+  Views: {}
+  Utils: {}
+  Routers: {}
