@@ -1,5 +1,5 @@
 class App.Views.DreamsIndex extends Backbone.View
-  template: JST['dreams/index']
+  template: JST['application/dreams/index']
   className: 'nine columns'
 
   events:

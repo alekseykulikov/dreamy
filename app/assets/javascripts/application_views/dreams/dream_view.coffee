@@ -1,5 +1,5 @@
 class App.Views.DreamsItem extends Backbone.View
-  template: JST['dreams/dream']
+  template: JST['application/dreams/dream']
   className: 'panel dream'
 
   events:
