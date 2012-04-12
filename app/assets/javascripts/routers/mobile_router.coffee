@@ -3,11 +3,13 @@ class App.Routers.Mobile extends Backbone.Router
     '.*'   : 'index'
     'index': 'index'
     'new'  : 'new'
+    'dreams/:id' : 'new'
 
-  index: ->
+  index: =>
+    App.dreams.on('reset', this.index)
     this.changePage new App.Views.Mobile.Index()
 
-  new: ->
+  new: () ->
     this.changePage new App.Views.Mobile.New()
 
   changePage: (page) ->

@@ -1,5 +1,5 @@
 <form id="new_dream" class="nice">
-  <input id="dream_name" name="dream[anme]" type="text" placeholder="New dream" class="large input-text" autofocus autocomplete="off">
+  <input id="dream_name" name="dream[name]" type="text" placeholder="New dream" class="large input-text" autofocus autocomplete="off">
 </form>
 
 <div id="dreams">
