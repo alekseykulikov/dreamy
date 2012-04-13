@@ -30,7 +30,7 @@ class App.Views.DreamsIndex extends Backbone.View
     newName = this.$('#dream_name').val()
 
     unless _.isEmpty(newName)
-      dream = App.dreams.create {name: newName, created_at: (new Date).toString()}, {wait: true}
+      dream = App.dreams.create {name: newName, created_at: (new Date).toString()}
       this.$('#dream_name').val('')
 
   focusDreamName: ->
