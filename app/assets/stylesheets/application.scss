@@ -15,9 +15,9 @@
 .container { margin-top: 10px; }
 .row { max-width: 900px; }
 
-#new_dream input {
+#new_dream #dream_name {
   margin: 0;
-  padding: 18px 17px 16px;
+  padding: 18px 15px 16px;
 }
 
 #dreams {
@@ -26,10 +26,11 @@
     border: 0;
     outline: none;
     background: none;
+    width: 90%;
+    display: inline-block;
   }
-  .panel.active {
-    box-shadow: 0 2px 5px #00A6FC;
-  }
+  .destroy { float: right; }
+  .active { box-shadow: 0 2px 5px #00A6FC; }
 }
 
 #count {

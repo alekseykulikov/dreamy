@@ -3,7 +3,7 @@ class App.Views.DreamsIndex extends Backbone.View
 
   events:
     'submit': 'newDream'
-    'focusin #dream_name': 'focusInNewDream'
+    'focusin #dream_name': 'unselectDream'
     'keydown' : 'checkNavigation'
 
   initialize: ->
@@ -19,7 +19,8 @@ class App.Views.DreamsIndex extends Backbone.View
     App.dreams.each(this.addOne)
 
   addOne: (dream) =>
-    view = new App.Views.DreamsItem(model: dream, parent: this)
+    view = new App.Views.DreamsItem(model: dream)
+    view.on('unactive', this.up)
     this.$('#dreams').prepend view.render().el
 
   newDream: (event) ->
@@ -30,31 +31,30 @@ class App.Views.DreamsIndex extends Backbone.View
       dream = App.dreams.create name: newName, created_at: (new Date).toString()
       this.$('#dream_name').val('')
 
-  focusInNewDream: ->
-    this.activateDream(null)
+  unselectDream: ->
+    this.$('.dream').removeClass('active')
 
-  activateDream: (dreamId) =>
-    this.$('#dreams .dream').removeClass('active')
-    @activeDreamId = dreamId
+  isDreamSelected: ->
+    this.$('.dream.active').length isnt 0
 
   checkNavigation: (event) ->
     switch event.keyCode
       when keys.up then return this.up()
       when keys.down then return this.down()
-      when keys.enter then return this.down() if @activeDreamId
+      when keys.enter then return this.down() if this.isDreamSelected()
 
   up: =>
-    if @activeDreamId
-      prev = $("##{@activeDreamId}").prev()
+    if this.isDreamSelected()
+      prev = this.$('.dream.active').prev()
       if prev.length is 0 then this.$('#dream_name').focus() else prev.click()
     else
-      this.$('#dreams .dream:last').click()
+      this.$('.dream:last').click()
     false
 
   down: ->
-    if @activeDreamId
-      next = $("##{@activeDreamId}").next()
+    if this.isDreamSelected()
+      next = this.$('.dream.active').next()
       if next.length is 0 then this.$('#dream_name').focus() else next.click()
     else
-      this.$('#dreams .dream:first').click()
+      this.$('.dream:first').click()
     false

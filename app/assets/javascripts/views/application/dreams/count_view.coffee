@@ -10,12 +10,12 @@ class App.Views.DreamsCount extends Backbone.View
 
   render: =>
     $(this.el).html @template count: App.dreams.length
-    return this
+    this
 
   fullSync: (event) ->
     App.dreams.storage.sync.full()
-    return false
+    false
 
   incrementalSync: (event) ->
     App.dreams.storage.sync.incremental()
-    return false
+    false

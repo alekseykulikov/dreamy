@@ -4,38 +4,37 @@ class App.Views.DreamsItem extends Backbone.View
 
   events:
     'click': 'select'
+    'click .destroy' : 'destroy'
     'keydown': 'checkDestroy'
-    'focusout input': 'save'
+    'change input': 'save'
 
   initialize: (options) ->
-    {@parent} = options
     @model.on('change', this.render)
     @model.on('destroy', this.remove, this)
 
   render: =>
     @currentValue = @model.get('name')
     this.$el.html @template(name: @currentValue)
-    this.$el.attr('id', @model.id)
     this
 
   getValue: ->
     this.$('input').val()
 
-  select: (event) =>
-    @parent.activateDream(@model.id)
+  select: (event) ->
+    $('.dream').removeClass('active')
     this.$el.addClass('active')
     this.$('input').focus()
 
   checkDestroy: (event) ->
     if event.keyCode is keys.backspace and (_.isEmpty(this.getValue()) or event.ctrlKey)
-      this.destroy()
+      this.destroy(event)
 
   save: (event) ->
     unless this.getValue() is @oldValue
       @model.save name: this.getValue()
 
-  destroy: ->
+  destroy: (event) ->
     @oldValue = this.getValue()
-    @parent.up()
+    this.trigger('unactive')
     @model.destroy()
     false
