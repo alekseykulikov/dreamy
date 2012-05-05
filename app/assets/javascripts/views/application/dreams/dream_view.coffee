@@ -4,52 +4,38 @@ class App.Views.DreamsItem extends Backbone.View
 
   events:
     'click': 'select'
-    'keydown': 'keydown'
-    'focusout p': 'save'
+    'keydown': 'checkDestroy'
+    'focusout input': 'save'
 
   initialize: (options) ->
     {@parent} = options
     @model.on('change', this.render)
-    @model.on('destroy', => $(@el).remove())
+    @model.on('destroy', this.remove, this)
 
   render: =>
-    $(@el).html @template(@model.toJSON())
-    $(@el).attr('id', @model.id)
-    @oldValue = @model.get('name')
-    @needSync = false
+    @currentValue = @model.get('name')
+    this.$el.html @template(name: @currentValue)
+    this.$el.attr('id', @model.id)
+    this
 
-    return this
+  getValue: ->
+    this.$('input').val()
 
   select: (event) =>
-    @parent.deactivateDream()
-    @parent.activeDreamId = @model.id
+    @parent.activateDream(@model.id)
+    this.$el.addClass('active')
+    this.$('input').focus()
 
-    $(@el).addClass('active')
-    this.$('p').attr('contenteditable', 'true')
-    this.$('p').focus()
-
-  keydown: (event) ->
-    startPosition = document.getSelection().baseOffset
-    value = this.$('p').html()
-    totalPosition = value.length
-
-    switch event.keyCode
-      when keys.left then return @parent.up() if startPosition is 0
-      when keys.right then return @parent.down() if startPosition is totalPosition
-      when keys.enter then return @parent.down()
-      when keys.backspace then return this.destroy() if value is '<br>' or event.ctrlKey
+  checkDestroy: (event) ->
+    if event.keyCode is keys.backspace and (_.isEmpty(this.getValue()) or event.ctrlKey)
+      this.destroy()
 
   save: (event) ->
-    newValue = this.$('p').html()
-
-    if newValue isnt @oldValue and newValue isnt '<br>'
-      @needSync = true
-      @oldValue = newValue
-      @model.save name: newValue
+    unless this.getValue() is @oldValue
+      @model.save name: this.getValue()
 
   destroy: ->
+    @oldValue = this.getValue()
     @parent.up()
     @model.destroy()
-    this.remove()
-
-    return false
+    false

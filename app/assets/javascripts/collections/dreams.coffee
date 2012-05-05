@@ -5,5 +5,5 @@ class App.Collections.Dreams extends Backbone.Collection
   initialize: ->
     @storage = new Offline.Storage('dreams', this, autoPush: true)
 
-  comparator: (idea) ->
-    (new Date(idea.get 'created_at')).getTime()
+  comparator: (dream) ->
+    (new Date(dream.get 'created_at')).getTime()

@@ -1,7 +1,5 @@
 class App.Views.DreamsCount extends Backbone.View
   template: JST['application/dreams/count']
-  className: 'three columns'
-  id: 'count'
 
   events:
     'click .full': 'fullSync'

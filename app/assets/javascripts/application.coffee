@@ -8,9 +8,7 @@
 window.keys =
   backspace: 8
   enter: 13
-  left: 37
   up: 38
-  right: 39
   down: 40
 
 $ ->
@@ -21,4 +19,4 @@ $ ->
   $('#content').append indexView.render().el
 
   countView = new App.Views.DreamsCount()
-  $('#content').append countView.render().el
+  $('#count').append countView.render().el

@@ -17,14 +17,19 @@
 
 #new_dream input {
   margin: 0;
-  padding: 20px 20px 18px;
-  width: 100%;
+  padding: 18px 17px 16px;
 }
 
-#dreams .panel.active {
-  box-shadow: 0 2px 5px #00A6FC;
-
-  p { outline: none; }
+#dreams {
+  .input-text {
+    margin: -6px 0 14px -5px;
+    border: 0;
+    outline: none;
+    background: none;
+  }
+  .panel.active {
+    box-shadow: 0 2px 5px #00A6FC;
+  }
 }
 
 #count {
