@@ -7,10 +7,10 @@ class App.Views.Mobile.New extends Backbone.View
   render:  ->
     @$el.html @template()
 
-    return this
+    @
 
   save: (event) ->
-    newName = this.$('#dream_name').val()
+    newName = @$('#dream_name').val()
     unless _.isEmpty(newName)
       App.dreams.create {name: newName, created_at: (new Date).toString()}, success: ->
         App.router.navigate("index", trigger: true)

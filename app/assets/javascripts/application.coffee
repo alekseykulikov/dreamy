@@ -15,8 +15,5 @@ $ ->
   App.dreams = new App.Collections.Dreams()
   App.dreams.fetch()
 
-  indexView = new App.Views.DreamsIndex()
-  $('#content').append indexView.render().el
-
-  countView = new App.Views.DreamsCount()
-  $('#count').append countView.render().el
+  new App.Views.DreamsIndex().render()
+  new App.Views.SharedCount().render()

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 Dream.delete_all
 
 def create_dream(name)

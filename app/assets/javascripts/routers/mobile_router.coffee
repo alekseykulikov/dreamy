@@ -6,11 +6,11 @@ class App.Routers.Mobile extends Backbone.Router
     'dreams/:id' : 'new'
 
   index: =>
-    App.dreams.on('reset', this.index)
-    this.changePage new App.Views.Mobile.Index()
+    App.dreams.on('reset', @index)
+    @changePage new App.Views.Mobile.Index()
 
   new: () ->
-    this.changePage new App.Views.Mobile.New()
+    @changePage new App.Views.Mobile.New()
 
   changePage: (page) ->
     $(page.el).attr('data-role', 'page')
