@@ -1,8 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require underscore
-#= require backbone
-#= require backbone_rails_sync
+#= require backbone-rails
 #= require backbone_offline
 #
 #= require_self
@@ -16,9 +14,6 @@ window.App =
   Collections: {}
   Views: {}
 
-window.l = (values...) ->
-  console.log(values...)
-
 window.keys =
   backspace: 8
   enter: 13
@@ -27,8 +22,8 @@ window.keys =
   esc: 27
 
 $ ->
-  App.dreams = new App.Collections.Dreams()
-  App.dreams.fetch()
+  dreams = new App.Collections.Dreams()
+  dreams.fetch()
 
-  new App.Views.DreamsIndex().render()
-  new App.Views.SharedCount().render()
+  new App.Views.DreamsIndex(collection: dreams).render()
+  new App.Views.SharedCount(collection: dreams).render()

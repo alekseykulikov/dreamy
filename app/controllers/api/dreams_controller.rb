@@ -5,8 +5,7 @@ class Api::DreamsController < Api::ApiController
   end
 
   def create
-    dream = Dream.new(params[:dream])
-    dream.save
+    dream = Dream.create(params[:dream])
     respond_with(dream, location: api_dreams_path)
   end
 

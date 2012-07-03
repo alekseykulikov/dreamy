@@ -1,24 +1,18 @@
 class App.Views.DreamsIndex extends Backbone.View
-  template: JST['dreams/index']
-  el:       '#content'
-
+  el: '#content'
   events:
     'submit #new_dream'   : 'newDream'
     'focusin #dream_name' : 'removeClassActive'
     'keydown'             : 'checkNavigation'
 
   initialize: ->
-    App.dreams.on('add', @addOne)
-    App.dreams.on('reset', @render)
-    App.dreams.on('destroy', @focusOnNew)
+    @collection.on('add', @addOne)
+    @collection.on('reset', @render)
+    @collection.on('destroy', @focusOnNew)
 
   render: =>
-    @$el.html @template()
-    @addAll()
+    @collection.each @addOne
     @
-
-  addAll: ->
-    App.dreams.each(@addOne)
 
   addOne: (dream) =>
     view = new App.Views.DreamsItem(model: dream)
@@ -26,8 +20,8 @@ class App.Views.DreamsIndex extends Backbone.View
 
   newDream: (event) ->
     event.preventDefault()
-    App.dreams.create name: @$('#dream_name').val(), created_at: (new Date).toString(),
-                      success: => @$('#dream_name').val('')
+    @collection.create name: @$('#dream_name').val(), created_at: (new Date).toString(),
+                       success: => @$('#dream_name').val('')
 
   focusOnNew: =>
     @$('#dream_name').focus()
@@ -40,21 +34,15 @@ class App.Views.DreamsIndex extends Backbone.View
 
   checkNavigation: (event) ->
     switch event.keyCode
-      when keys.up    then @up()
-      when keys.down  then @down()
-      when keys.enter then @down() if @hasSelected()
+      when keys.up    then @navigate('prev')
+      when keys.down  then @navigate('next')
+      when keys.enter then @navigate('next') if @hasSelected()
       when keys.esc   then @focusOnNew()
 
-  up: =>
+  navigate: (direction) =>
     if @hasSelected()
-      prev = @$('.dream.active').prev()
-      if prev.length is 0 then @focusOnNew() else prev.click()
+      item = @$('.dream.active')[direction]()
+      if item.length is 0 then @focusOnNew() else item.click()
     else
-      @$('.dream:last').click()
-
-  down: ->
-    if @hasSelected()
-      next = @$('.dream.active').next()
-      if next.length is 0 then @focusOnNew() else next.click()
-    else
-      @$('.dream:first').click()
+      selector = if direction is 'next' then 'first' else 'last'
+      @$(".dream:#{selector}").click()

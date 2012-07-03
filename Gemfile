@@ -11,7 +11,7 @@ group :assets do
   gem 'uglifier',        '>= 1.0.3'
   gem 'zurb-foundation', '~> 2.2.1.2'
   gem 'jquery-rails'
-  gem 'rails-backbone'
+  gem 'backbone-rails'
   gem 'eco'
 end
 

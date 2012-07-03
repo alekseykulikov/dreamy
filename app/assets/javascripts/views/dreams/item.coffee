@@ -1,7 +1,6 @@
 class App.Views.DreamsItem extends Backbone.View
   template:   JST['dreams/item']
   className: 'panel dream'
-
   events:
     'click'          : 'select'
     'click .destroy' : 'destroy'
@@ -16,21 +15,17 @@ class App.Views.DreamsItem extends Backbone.View
     @$el.html @template(name: @model.get('name'))
     @
 
-  save: (event) ->
-    @model.save name: @getValue()
+  save: ->
+    @model.save name: @$('input').val()
 
-  destroy: (event) ->
-    event.preventDefault()
+  destroy: ->
     @model.destroy()
 
-  getValue: ->
-    @$('input').val()
-
-  select: (event) ->
+  select: ->
     $('.dream').removeClass('active')
     @$el.addClass('active')
     @$('input').focus()
 
   checkDestroy: (event) ->
-    if event.keyCode is keys.backspace and (_.isEmpty(@getValue()) or event.ctrlKey)
+    if event.keyCode is keys.backspace and (_.isEmpty(@$('input').val()) or event.ctrlKey)
       @destroy(event)

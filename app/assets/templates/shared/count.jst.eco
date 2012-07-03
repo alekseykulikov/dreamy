@@ -1,6 +1,0 @@
-<div class="panel">
-  <h4>Total: <%= @count %></h4>
-  <hr>
-  <a href="#/sync/full" class="full">Full sync</a><br>
-  <a href="#/sync/part" class="part">Incremental sync</a>
-</div>

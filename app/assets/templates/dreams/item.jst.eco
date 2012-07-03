@@ -1,2 +1,2 @@
 <input type="text" class="input-text" value="<%= @name %>" />
-<a href="#dream/destroy" class="destroy">X</a>
+<a href="javascript:;" class="destroy">X</a>
