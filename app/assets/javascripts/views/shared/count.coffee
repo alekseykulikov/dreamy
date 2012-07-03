@@ -1,5 +1,5 @@
 class App.Views.SharedCount extends Backbone.View
-  template: JST['application/shared/count']
+  template: JST['shared/count']
   el:       '#count'
 
   events:

@@ -1,5 +1,5 @@
 class App.Views.DreamsIndex extends Backbone.View
-  template: JST['application/dreams/index']
+  template: JST['dreams/index']
   el:       '#content'
 
   events:
@@ -40,9 +40,10 @@ class App.Views.DreamsIndex extends Backbone.View
 
   checkNavigation: (event) ->
     switch event.keyCode
-      when keys.up then @up()
-      when keys.down then @down()
+      when keys.up    then @up()
+      when keys.down  then @down()
       when keys.enter then @down() if @hasSelected()
+      when keys.esc   then @focusOnNew()
 
   up: =>
     if @hasSelected()

@@ -1,9 +1,0 @@
-<div data-role="header" data-position="fixed" id="menu">
-  <a href="#index" class="ui-btn-left">Cancel</a>
-  <h1>New dream</h1>
-</div><!-- /header -->
-
-<div data-role="content" id="content">
-  <textarea cols="40" rows="8" name=="dream[name]" id="dream_name" placeholder="New dream"></textarea>
-  <a href="#index" class="ui-btn-right save" data-role="button" data-inline="true">Save</a>
-</div><!-- /content -->
