@@ -5,9 +5,12 @@
 
 .container { margin-top: 10px; }
 .row { max-width: 900px; }
-a { color: #4D4D4D; }
 form.nice input.input-text { background: none; }
 h2, h4 { font-family: "OpenSans"; font-weight: 500; }
+a {
+  color: #11639D;
+  &:hover {color: #4D4D4D;}
+}
 
 #new_dream #dream_name {
   margin: 0;
