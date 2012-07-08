@@ -5,10 +5,13 @@
 
 .container { margin-top: 10px; }
 .row { max-width: 900px; }
+a { color: #4D4D4D; }
+form.nice input.input-text { background: none; }
+h2, h4 { font-family: "OpenSans"; font-weight: 500; }
 
 #new_dream #dream_name {
   margin: 0;
-  padding: 18px 15px 16px;
+  padding: 17px 15px 16px;
 }
 
 #dreams {
@@ -21,7 +24,7 @@
     display: inline-block;
   }
   .destroy { float: right; }
-  .active { box-shadow: 0 2px 5px #00A6FC; }
+  .active { box-shadow: 0 2px 5px #B3B3B3; }
 }
 
 #count .panel {
