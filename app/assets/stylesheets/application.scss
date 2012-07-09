@@ -3,6 +3,7 @@
  *= require_self
 */
 
+body { min-height: 480px; }
 .container { margin-top: 10px; }
 .row { max-width: 900px; }
 form.nice input.input-text { background: none; }

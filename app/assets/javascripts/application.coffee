@@ -22,6 +22,7 @@ window.keys =
   esc: 27
 
 $ ->
+  setTimeout (-> window.scrollTo(0, 0)), 0
   dreams = new App.Collections.Dreams()
   dreams.fetch()
 
