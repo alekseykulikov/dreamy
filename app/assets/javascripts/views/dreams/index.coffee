@@ -11,8 +11,12 @@ class App.Views.DreamsIndex extends Backbone.View
     @collection.on('destroy', @focusOnNew)
 
   render: =>
-    @collection.each @addOne
+    @addAll()
     @
+
+  addAll: ->
+    @$('#dreams').html ''
+    @collection.each @addOne
 
   addOne: (dream) =>
     view = new App.Views.DreamsItem(model: dream)
