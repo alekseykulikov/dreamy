@@ -1,5 +1,5 @@
-class App.Collections.Dreams extends Backbone.Collection
-  model: App.Models.Dream
+class Dreams extends Backbone.Collection
+  model: require('models/dream')
   url: '/api/dreams'
 
   initialize: ->
@@ -7,3 +7,5 @@ class App.Collections.Dreams extends Backbone.Collection
 
   comparator: (dream) ->
     (new Date(dream.get 'created_at')).getTime()
+
+module.exports = Dreams

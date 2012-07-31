@@ -1,4 +1,6 @@
-class App.Views.DreamsIndex extends Backbone.View
+Item = require('./item')
+
+class Index extends Backbone.View
   el: '#content'
   events:
     'submit #new_dream'   : 'newDream'
@@ -19,7 +21,7 @@ class App.Views.DreamsIndex extends Backbone.View
     @collection.each @addOne
 
   addOne: (dream) =>
-    view = new App.Views.DreamsItem(model: dream)
+    view = new Item(model: dream)
     @$('#dreams').prepend view.render().el
 
   newDream: (event) ->
@@ -50,3 +52,5 @@ class App.Views.DreamsIndex extends Backbone.View
     else
       selector = if direction is 'next' then 'first' else 'last'
       @$(".dream:#{selector}").click()
+
+module.exports = Index

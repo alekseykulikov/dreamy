@@ -1,4 +1,4 @@
-class App.Views.DreamsItem extends Backbone.View
+class Item extends Backbone.View
   template:   JST['dreams/item']
   className: 'panel dream'
   events:
@@ -29,3 +29,5 @@ class App.Views.DreamsItem extends Backbone.View
   checkDestroy: (event) ->
     if event.keyCode is keys.backspace and (_.isEmpty(@$('input').val()) or event.ctrlKey)
       @destroy(event)
+
+module.exports = Item

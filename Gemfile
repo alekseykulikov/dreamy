@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.7'
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -13,6 +13,7 @@ group :assets do
   gem 'jquery-rails'
   gem 'backbone-rails'
   gem 'eco'
+  gem 'sprockets-commonjs'
 end
 
 gem 'rspec-rails', groups: [:development, :test]
