@@ -1,13 +1,10 @@
 <pre>
- ___
-(  _`\
-| | ) | _ __   __     _ _   ___ ___     __   _ __
-| | | )( '__)/'__`\ /'_` )/' _ ` _ `\ /'__`\( '__)
-| |_) || |  (  ___/( (_| || ( ) ( ) |(  ___/| |
-(____/'(_)  `\____)`\__,_)(_) (_) (_)`\____)(_)
+  (  \/  )( \/ )  (  _ \(  _ \( ___)  /__\  (  \/  )/ __)
+   )    (  \  /    )(_) ))   / )__)  /(__)\  )    ( \__ \
+  (_/\/\_) (__)   (____/(_)\_)(____)(__)(__)(_/\/\_)(___/
 </pre>
 
-Dreamer is a super simple web-application which allows to write your dreams. You can check it by url [dreamer.herokuapp.com](http://dreamer.herokuapp.com/).
+Mydreams is a super simple web-application which allows to write your dreams. You can check it by url [mydreams.herokuapp.com](http://mydreams.herokuapp.com/).
 This app was developed as an example of usage [backbone.offline](https://github.com/Ask11/backbone.offline) library. 
 
 ### Interesting features
@@ -21,12 +18,12 @@ This app was developed as an example of usage [backbone.offline](https://github.
 
 ### Backbone.offline requirements
 
-1. Add one line to initialize method to [dreams.coffee](https://github.com/Ask11/dreamer/blob/master/app/assets/javascripts/collections/dreams.coffee);
-2. Default backbone REST API on server to [dreams_controller.rb](https://github.com/Ask11/dreamer/blob/master/app/controllers/api/dreams_controller.rb);
-3. Model should have `updated_at` field [schema.rb](https://github.com/Ask11/dreamer/blob/master/db/schema.rb).
+1. Add one line to initialize method to [dreams.coffee](https://github.com/Ask11/mydreams/blob/master/app/assets/javascripts/collections/dreams.coffee);
+2. Default backbone REST API on server to [dreams_controller.rb](https://github.com/Ask11/mydreams/blob/master/app/controllers/api/dreams_controller.rb);
+3. Model should have `updated_at` field [schema.rb](https://github.com/Ask11/mydreams/blob/master/db/schema.rb).
 
 You can get more information in [how to use](https://github.com/Ask11/backbone.offline#how-to-use) section.
 
 ### License
 
-Licensed under MIT license. © 2012 Aleksey Kulikov, [All Rights Reserved](https://github.com/Ask11/dreamer/blob/master/LICENSE).
+Licensed under MIT license. © 2012 Aleksey Kulikov, [All Rights Reserved](https://github.com/Ask11/mydreams/blob/master/LICENSE).

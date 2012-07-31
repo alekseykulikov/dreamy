@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dreamer::Application.load_tasks
+Dreams::Application.load_tasks
