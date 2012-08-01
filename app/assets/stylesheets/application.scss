@@ -1,40 +1,30 @@
-/*
- *= require 'foundation'
- *= require_self
-*/
+@import 'foundation';
 
-body { min-height: 480px; }
-.container { margin-top: 10px; }
+body { min-height: 480px; line-height: 18px; }
 .row { max-width: 900px; }
-form.nice input.input-text { background: none; }
-h2, h4 { font-family: "OpenSans"; font-weight: 500; }
-a {
-  color: #11639D;
-  &:hover {color: #4D4D4D;}
+h2, h3, h6 { font-family: "OpenSans";color: #6F6F6F; font-weight: 500; padding: 10px 0; }
+
+#count {
+  text-align: center;
+  h3 { padding: 3px 0; }
 }
 
-#new_dream #dream_name {
-  margin: 0;
-  padding: 17px 15px 16px;
-}
+#dream_name { padding: 26px 15px 25px; }
 
 #dreams {
+  .panel.dream { padding: 10px 14px; margin-bottom: 20px; }
   .input-text {
-    margin: -6px 0 14px -5px;
+    margin: 0;
+    padding: 0;
     border: 0;
     outline: none;
     background: none;
+    box-shadow: none;
     width: 90%;
     display: inline-block;
   }
-  .destroy { float: right; }
-  .active { box-shadow: 0 2px 5px #B3B3B3; }
+  .destroy { float: right; margin-top: 8px; }
+  .active { border: 1px solid #CCC; }
 }
 
-#count .panel {
-  padding-top: 12px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.footer { padding: 20px; text-align: center; }
+.footer { text-align: center; }
