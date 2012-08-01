@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: mydreams_development
+  database: dreamy_development
 
 test:
   <<: *default
-  database: mydreams_test
+  database: dreamy_test
 
 production:
   <<: *default
-  database: mydreams
+  database: dreamy

@@ -1,4 +1,4 @@
-Dreams::Application.routes.draw do
+Dreamy::Application.routes.draw do
   root to: 'home#index'
   get '/manifest.appcache' => 'home#manifest', format: :appcache
 
