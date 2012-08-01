@@ -1,18 +1,18 @@
 <pre>
-   ____________   ___________         _____\    \     _____                ___________   ______   _____  
-   \           \  \          \       /    / |    |  /      |_             /           \ |\     \ |     | 
-    \           \  \    /\    \     /    /  /___/| /         \           /    _   _    \\ \     \|     | 
-     |    /\     |  |   \_\    |   |    |__ |___|/|     /\    \         /    //   \\    \\ \           | 
-     |   |  |    |  |      ___/    |       \      |    |  |    \       /    //     \\    \\ \____      | 
-     |    \/     |  |      \  ____ |     __/ __   |     \/      \     /     \\_____//     \\|___/     /| 
-    /           /| /     /\ \/    \|\    \  /  \  |\      /\     \   /       \ ___ /       \   /     / | 
-   /___________/ |/_____/ |\______|| \____\/    | | \_____\ \_____\ /________/|   |\________\ /_____/  / 
-  |           | / |     | | |     || |    |____/| | |     | |     ||        | |   | |        ||     | /  
-  |___________|/  |_____|/ \|_____| \|____|   | |  \|_____|\|_____||________|/     \|________||_____|/   
+ ____________   ___________         _____\    \     _____                ___________   ______   _____  
+ \           \  \          \       /    / |    |  /      |_             /           \ |\     \ |     | 
+  \           \  \    /\    \     /    /  /___/| /         \           /    _   _    \\ \     \|     | 
+   |    /\     |  |   \_\    |   |    |__ |___|/|     /\    \         /    //   \\    \\ \           | 
+   |   |  |    |  |      ___/    |       \      |    |  |    \       /    //     \\    \\ \____      | 
+   |    \/     |  |      \  ____ |     __/ __   |     \/      \     /     \\_____//     \\|___/     /| 
+  /           /| /     /\ \/    \|\    \  /  \  |\      /\     \   /       \ ___ /       \   /     / | 
+ /___________/ |/_____/ |\______|| \____\/    | | \_____\ \_____\ /________/|   |\________\ /_____/  / 
+|           | / |     | | |     || |    |____/| | |     | |     ||        | |   | |        ||     | /  
+|___________|/  |_____|/ \|_____| \|____|   | |  \|_____|\|_____||________|/     \|________||_____|/   
                                           |___|/
 </pre>
 
-Dreamy is a super simple web-application which allows to write your dreams. You can check it by url [dreamy.herokuapp.com](http://dreamy.herokuapp.com/).
+Dreamy is a super simple web-application which allows to write your dreams. You can check it by url [dreamyapp.herokuapp.com](http://dreamyapp.herokuapp.com/).
 This app was developed as an example of usage [backbone.offline](https://github.com/Ask11/backbone.offline) library. 
 
 ### Interesting features
@@ -26,11 +26,11 @@ This app was developed as an example of usage [backbone.offline](https://github.
 
 ### Backbone.offline requirements
 
-1. Add one line to initialize method to [dreams.coffee](https://github.com/Ask11/dreamy/blob/master/app/assets/javascripts/collections/dreams.coffee);
+1. Add one line to initialize method to [dreams.coffee](https://github.com/Ask11/dreamy/blob/master/app/assets/javascripts/collections/dreams.module.coffee);
 2. Default backbone REST API on server to [dreams_controller.rb](https://github.com/Ask11/dreamy/blob/master/app/controllers/api/dreams_controller.rb);
 3. Model should have `updated_at` field [schema.rb](https://github.com/Ask11/dreamy/blob/master/db/schema.rb).
 
-You can get more information in [how to use](https://github.com/Ask11/backbone.offline#how-to-use) section.
+You can get more information about backbone.offline in [how to use](https://github.com/Ask11/backbone.offline#how-to-use) section.
 
 ### License
 
