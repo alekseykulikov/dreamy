@@ -1,4 +1,4 @@
-Item = require('./item')
+Item = require('views/dreams/item')
 
 module.exports = class Index extends Backbone.View
   el: '#content'
@@ -22,6 +22,7 @@ module.exports = class Index extends Backbone.View
 
   addOne: (dream) =>
     view = new Item(model: dream)
+    view.on('select', @removeClassActive)
     @$('#dreams').prepend view.render().el
 
   newDream: (event) ->
@@ -32,7 +33,7 @@ module.exports = class Index extends Backbone.View
   focusOnNew: =>
     @$('#dream_name').focus()
 
-  removeClassActive: ->
+  removeClassActive: =>
     @$('.dream').removeClass('active')
 
   hasSelected: ->

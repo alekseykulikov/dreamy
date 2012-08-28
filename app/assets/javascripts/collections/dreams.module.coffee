@@ -1,5 +1,7 @@
+Dream = require('models/dream')
+
 module.exports = class Dreams extends Backbone.Collection
-  model: require('models/dream')
+  model: Dream
   url: '/api/dreams'
 
   initialize: ->

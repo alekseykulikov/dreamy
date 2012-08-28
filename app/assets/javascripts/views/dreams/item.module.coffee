@@ -22,7 +22,7 @@ module.exports = class Item extends Backbone.View
     @model.destroy()
 
   select: ->
-    $('.dream').removeClass('active') # TODO: it should not be here, only local namespace
+    @trigger('select')
     @$el.addClass('active')
     @$('input').focus()
 
