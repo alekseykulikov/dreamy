@@ -1,4 +1,4 @@
-class Count extends Backbone.View
+module.exports = class Count extends Backbone.View
   el: '#count'
   events:
     'click .full' : 'fullSync'
@@ -16,5 +16,3 @@ class Count extends Backbone.View
 
   incrementalSync: ->
     @collection.storage.sync.incremental()
-
-module.exports = Count

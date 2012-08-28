@@ -1,4 +1,4 @@
-class Item extends Backbone.View
+module.exports = class Item extends Backbone.View
   template:   JST['dreams/item']
   className: 'panel dream'
   events:
@@ -22,12 +22,10 @@ class Item extends Backbone.View
     @model.destroy()
 
   select: ->
-    $('.dream').removeClass('active')
+    $('.dream').removeClass('active') # TODO: it should not be here, only local namespace
     @$el.addClass('active')
     @$('input').focus()
 
   checkDestroy: (event) ->
     if event.keyCode is keys.backspace and (_.isEmpty(@$('input').val()) or event.ctrlKey)
-      @destroy(event)
-
-module.exports = Item
+      @destroy()

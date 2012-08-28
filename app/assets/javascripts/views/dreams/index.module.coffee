@@ -1,6 +1,6 @@
 Item = require('./item')
 
-class Index extends Backbone.View
+module.exports = class Index extends Backbone.View
   el: '#content'
   events:
     'submit #new_dream'   : 'newDream'
@@ -52,5 +52,3 @@ class Index extends Backbone.View
     else
       selector = if direction is 'next' then 'first' else 'last'
       @$(".dream:#{selector}").click()
-
-module.exports = Index
