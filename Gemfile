@@ -8,11 +8,13 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'zurb-foundation', '~> 3.0.7'
   gem 'jquery-rails'
   gem 'backbone-rails'
   gem 'eco'
   gem 'sprockets-commonjs'
+
+  gem 'zurb-foundation', '~> 3.2.2'
+  gem 'modular-scale'
 end
 
 gem 'rspec-rails', groups: [:development, :test]
