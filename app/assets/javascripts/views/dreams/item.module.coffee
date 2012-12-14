@@ -27,5 +27,5 @@ module.exports = ItemView = Backbone.View.extend
     @$('input').focus()
 
   checkDestroy: (event) ->
-    if event.keyCode is 27 and (_.isEmpty(@$('input').val()) or event.ctrlKey)
+    if event.keyCode is 8 and (_.isEmpty(@$('input').val()) or event.ctrlKey)
       @destroy()
