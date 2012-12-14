@@ -14,6 +14,7 @@ module.exports = ItemView = Backbone.View.extend
 
   render: ->
     @$el.html @template(name: @model.get('name'))
+    @$el.attr 'id', @model.id
     @
 
   save: ->

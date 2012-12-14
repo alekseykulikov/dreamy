@@ -8,9 +8,7 @@ module.exports = IndexView = Backbone.View.extend
     'keydown'             : 'checkNavigation'
 
   initialize: ->
-    @listenTo(@collection, 'add', @addOne)
-    @listenTo(@collection, 'add', @makeSortable)
-    @listenTo(@collection, 'reset', @render)
+    @listenTo(@collection, 'add reset', @render)
     @listenTo(@collection, 'destroy', @focusOnNew)
     @listenTo(Backbone, 'select:item', @removeClassActive)
 
@@ -30,8 +28,9 @@ module.exports = IndexView = Backbone.View.extend
                             { success: => @$('#dream_name').val('') }
 
   makeSortable: ->
-    @$('#dreams').sortable().on 'sortupdate', (e, ui) ->
-      console.log $(ui.item).index()
+    @$('#dreams').sortable().off('sortupdate').on 'sortupdate', (e, ui) =>
+      model = @collection.get $(ui.item).attr('id')
+      @collection.saveTo $(ui.item).index(), model
 
   focusOnNew: ->
     @$('#dream_name').focus()

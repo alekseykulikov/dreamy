@@ -32,13 +32,17 @@
 
   // Returns unique position value
   // based on selected order in collection
-  var getPosition = function(order, coll) {
+  var getPosition = function(order, coll, model) {
     var prev = coll.at(order - 1);
     var next = coll.at(order);
     if (prev) prev = prev.get('position');
     if (next) next = next.get('position');
 
     return coll.generator(prev, next);
+  };
+
+  var getLastPosition = function(coll) {
+    return floatGenerator(coll.length > 0 ? coll.last().get('position') : 0);
   };
 
   exports.Position = {
@@ -66,7 +70,7 @@
     // Returns result of Backbone.Collection.prototype.create
     createTo: function(order, model, options) {
       model = this._prepareModel(model, options);
-      model.set({position: getPosition(order, this)}, {silent: true});
+      model.set({position: getPosition(order, this, model)}, {silent: true});
       return this.create(model, options);
     },
 
@@ -81,7 +85,14 @@
     //
     // Returns updated and re-sorted collection
     saveTo: function(order, model) {
-      model.save({position: getPosition(order, this)});
+      if (this.length === 1) return this;
+      if (order === this.length - 1) {
+        model.save({position: getLastPosition(this)});
+      } else {
+        model.set({position: getLastPosition(this)}, {silent: true});
+        this.sort({silent: true});
+        model.save({position: getPosition(order, this, model)});
+      }
       return this.sort();
     },
 
@@ -99,8 +110,7 @@
     //
     // Returns updated collection
     addTo: function(order, model) {
-      var lastPosition = this.generator(this.length > 0 ? this.last().get('position') : 1);
-      model.set({position: lastPosition}, {silent: true});
+      model.set({position: getLastPosition(this)}, {silent: true});
       this.add(model);
       return this.saveTo(order, model);
     }
