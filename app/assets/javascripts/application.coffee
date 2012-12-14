@@ -1,6 +1,5 @@
 #= require jquery
 #= require jquery_ujs
-#= require backbone-rails
 #= require backbone_offline
 #= require sprockets/commonjs
 #
@@ -10,9 +9,9 @@
 #= require_tree ./views
 #= require_self
 
-Dreams = require('collections/dreams')
-Index  = require('views/dreams/index')
-Count  = require('views/shared/count')
+Dreams    = require('collections/dreams')
+IndexView = require('views/dreams/index')
+CountView = require('views/shared/count')
 
 window.keys =
   backspace: 8
@@ -22,10 +21,8 @@ window.keys =
   esc: 27
 
 $ ->
-  setTimeout (-> window.scrollTo(0, 0)), 0
-
   dreams = new Dreams()
   dreams.fetch()
 
-  new Index(collection: dreams).render()
-  new Count(collection: dreams).render()
+  new IndexView(collection: dreams).render()
+  new CountView(collection: dreams).render()

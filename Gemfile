@@ -9,7 +9,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'jquery-rails'
-  gem 'backbone-rails'
   gem 'eco'
   gem 'sprockets-commonjs'
 
