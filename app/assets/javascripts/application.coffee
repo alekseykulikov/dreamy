@@ -1,8 +1,8 @@
 #= require jquery
 #= require jquery_ujs
+#= require jquery.sortable
 #= require underscore
 #= require backbone
-#= require backbone_offline
 #= require sprockets/commonjs
 #
 #= require_tree ../templates

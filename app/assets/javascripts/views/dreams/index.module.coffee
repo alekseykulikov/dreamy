@@ -9,6 +9,7 @@ module.exports = IndexView = Backbone.View.extend
 
   initialize: ->
     @listenTo(@collection, 'add', @addOne)
+    @listenTo(@collection, 'add', @makeSortable)
     @listenTo(@collection, 'reset', @render)
     @listenTo(@collection, 'destroy', @focusOnNew)
     @listenTo(Backbone, 'select:item', @removeClassActive)
@@ -16,6 +17,7 @@ module.exports = IndexView = Backbone.View.extend
   render: ->
     @$('#dreams').html ''
     @collection.each @addOne
+    @makeSortable()
     @
 
   addOne: (dream) =>
@@ -26,6 +28,10 @@ module.exports = IndexView = Backbone.View.extend
     event.preventDefault()
     @collection.create name: @$('#dream_name').val(), created_at: (new Date).toString(),
                        success: => @$('#dream_name').val('')
+
+  makeSortable: ->
+    @$('#dreams').sortable().on 'sortupdate', (e, ui) ->
+      console.log e, ui, this
 
   focusOnNew: ->
     @$('#dream_name').focus()

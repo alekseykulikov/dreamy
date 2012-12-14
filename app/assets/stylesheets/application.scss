@@ -12,6 +12,8 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
 #dream_name { padding: 26px 15px 25px; }
 
 #dreams {
+  li { list-style: none; }
+  .sortable-placeholder { border: 1px dotted #CCC; padding: 25px 14px; margin-bottom: 20px;}
   .panel.dream { padding: 10px 14px; margin-bottom: 20px; }
   .input-text {
     margin: 0;
@@ -20,10 +22,10 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
     outline: none;
     background: none;
     box-shadow: none;
-    width: 90%;
+    width: 91%;
     display: inline-block;
   }
-  .destroy { float: right; margin-top: 8px; }
+  .destroy { float: right; margin-top: 6px; }
   .active { border: 1px solid #CCC; }
 }
 

@@ -1,5 +1,6 @@
 module.exports = ItemView = Backbone.View.extend
   template:   JST['dreams/item']
+  tagName:   'li'
   className: 'panel dream'
   events:
     'click'          : 'select'
