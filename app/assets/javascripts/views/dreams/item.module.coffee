@@ -1,4 +1,4 @@
-module.exports = class Item extends Backbone.View
+module.exports = ItemView = Backbone.View.extend
   template:   JST['dreams/item']
   className: 'panel dream'
   events:
@@ -8,10 +8,10 @@ module.exports = class Item extends Backbone.View
     'change input'   : 'save'
 
   initialize: (options) ->
-    @model.on('change', @render)
-    @model.on('destroy', @remove, @)
+    @listenTo(@model, 'change', @render)
+    @listenTo(@model, 'destroy', @remove)
 
-  render: =>
+  render: ->
     @$el.html @template(name: @model.get('name'))
     @
 
@@ -22,10 +22,10 @@ module.exports = class Item extends Backbone.View
     @model.destroy()
 
   select: ->
-    @trigger('select')
+    Backbone.trigger('select:item')
     @$el.addClass('active')
     @$('input').focus()
 
   checkDestroy: (event) ->
-    if event.keyCode is keys.backspace and (_.isEmpty(@$('input').val()) or event.ctrlKey)
+    if event.keyCode is 27 and (_.isEmpty(@$('input').val()) or event.ctrlKey)
       @destroy()

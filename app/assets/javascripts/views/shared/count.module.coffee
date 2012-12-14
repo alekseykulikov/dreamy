@@ -1,13 +1,13 @@
-module.exports = class Count extends Backbone.View
+module.exports = CountView = Backbone.View.extend
   el: '#count'
   events:
     'click .full' : 'fullSync'
     'click .part' : 'incrementalSync'
 
   initialize: ->
-    @collection.on('reset add destroy', @render)
+    @listenTo(@collection, 'reset add destroy', @render)
 
-  render: =>
+  render: ->
     @$('#counter').html @collection.length
     @
 

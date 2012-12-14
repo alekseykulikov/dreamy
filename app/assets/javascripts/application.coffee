@@ -1,24 +1,18 @@
 #= require jquery
 #= require jquery_ujs
+#= require underscore
+#= require backbone
 #= require backbone_offline
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
 #= require_tree ./models
-#= require_tree ./collections
 #= require_tree ./views
 #= require_self
 
-Dreams    = require('collections/dreams')
+Dreams    = require('models/dream')
 IndexView = require('views/dreams/index')
 CountView = require('views/shared/count')
-
-window.keys =
-  backspace: 8
-  enter: 13
-  up: 38
-  down: 40
-  esc: 27
 
 $ ->
   dreams = new Dreams()

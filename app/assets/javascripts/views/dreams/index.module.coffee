@@ -1,6 +1,6 @@
-Item = require('views/dreams/item')
+ItemView = require('./item')
 
-module.exports = class Index extends Backbone.View
+module.exports = IndexView = Backbone.View.extend
   el: '#content'
   events:
     'submit #new_dream'   : 'newDream'
@@ -8,21 +8,18 @@ module.exports = class Index extends Backbone.View
     'keydown'             : 'checkNavigation'
 
   initialize: ->
-    @collection.on('add', @addOne)
-    @collection.on('reset', @render)
-    @collection.on('destroy', @focusOnNew)
+    @listenTo(@collection, 'add', @addOne)
+    @listenTo(@collection, 'reset', @render)
+    @listenTo(@collection, 'destroy', @focusOnNew)
+    @listenTo(Backbone, 'select:item', @removeClassActive)
 
-  render: =>
-    @addAll()
-    @
-
-  addAll: ->
+  render: ->
     @$('#dreams').html ''
     @collection.each @addOne
+    @
 
   addOne: (dream) =>
-    view = new Item(model: dream)
-    view.on('select', @removeClassActive)
+    view = new ItemView(model: dream)
     @$('#dreams').prepend view.render().el
 
   newDream: (event) ->
@@ -30,10 +27,10 @@ module.exports = class Index extends Backbone.View
     @collection.create name: @$('#dream_name').val(), created_at: (new Date).toString(),
                        success: => @$('#dream_name').val('')
 
-  focusOnNew: =>
+  focusOnNew: ->
     @$('#dream_name').focus()
 
-  removeClassActive: =>
+  removeClassActive: ->
     @$('.dream').removeClass('active')
 
   hasSelected: ->
@@ -41,12 +38,12 @@ module.exports = class Index extends Backbone.View
 
   checkNavigation: (event) ->
     switch event.keyCode
-      when keys.up    then @navigate('prev')
-      when keys.down  then @navigate('next')
-      when keys.enter then @navigate('next') if @hasSelected()
-      when keys.esc   then @focusOnNew()
+      when 38 then @navigate('prev')
+      when 40 then @navigate('next')
+      when 13 then @navigate('next') if @hasSelected()
+      when 27 then @focusOnNew()
 
-  navigate: (direction) =>
+  navigate: (direction) ->
     if @hasSelected()
       item = @$('.dream.active')[direction]()
       if item.length is 0 then @focusOnNew() else item.click()
