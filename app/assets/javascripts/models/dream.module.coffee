@@ -7,5 +7,4 @@ module.exports = Dreams = Backbone.Collection.extend
   model: Dream
   url: '/api/dreams'
 
-  comparator: (dream) ->
-    (new Date(dream.get 'created_at')).getTime()
+_.extend(Dreams::, Backbone.Position)

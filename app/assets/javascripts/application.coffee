@@ -3,6 +3,7 @@
 #= require jquery.sortable
 #= require underscore
 #= require backbone
+#= require backbone.position
 #= require sprockets/commonjs
 #
 #= require_tree ../templates

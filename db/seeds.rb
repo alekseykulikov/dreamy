@@ -1,11 +1,10 @@
 Dream.delete_all
 
-def create_dream(name)
-  Dream.create! name: name, created_at: Time.now - Integer(rand()*1000).seconds
+def create_dream(name, position)
+  Dream.create! name: name, position: position
+  puts "#{position}: #{name}"
 end
 
-create_dream 'Learn to play on sax'
-create_dream 'Dive with scuba'
-create_dream 'Visit Iceland'
-
-puts 'OK!'
+create_dream 'Learn to play on sax', 1
+create_dream 'Dive with scuba', 2
+create_dream 'Visit Iceland', 3

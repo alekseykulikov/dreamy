@@ -22,16 +22,16 @@ module.exports = IndexView = Backbone.View.extend
 
   addOne: (dream) =>
     view = new ItemView(model: dream)
-    @$('#dreams').prepend view.render().el
+    @$('#dreams').append view.render().el
 
   newDream: (event) ->
     event.preventDefault()
-    @collection.create name: @$('#dream_name').val(), created_at: (new Date).toString(),
-                       success: => @$('#dream_name').val('')
+    @collection.createTo 0, { name: @$('#dream_name').val() },
+                            { success: => @$('#dream_name').val('') }
 
   makeSortable: ->
     @$('#dreams').sortable().on 'sortupdate', (e, ui) ->
-      console.log e, ui, this
+      console.log $(ui.item).index()
 
   focusOnNew: ->
     @$('#dream_name').focus()
