@@ -13,7 +13,7 @@
 </pre>
 
 Dreamy is a simple web-application to write your dreams. It's available by url [dreamyapp.herokuapp.com](http://dreamyapp.herokuapp.com/).
-This app was developed as an example for my libraries: [backbone.offline](https://github.com/Ask11/backbone.offline) and [backbone.position](https://github.com/Ask11/backbone.position).
+This app was developed as an example for my libraries [backbone.offline](https://github.com/Ask11/backbone.offline) and [backbone.position](https://github.com/Ask11/backbone.position).
 
 ### Features
 
@@ -24,7 +24,7 @@ This app was developed as an example for my libraries: [backbone.offline](https:
 * Uses [Zurb foundation](http://foundation.zurb.com/docs/index.php);
 * Integrates [HTML5 Cache Manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html) to Rails.
 
-Check the source and learn how simple is to write full-featured html5 applications.
+Check the source and learn how to write full-featured html5 apps with [Backbone](http://documentcloud.github.com/backbone/).
 
 ### License
 
