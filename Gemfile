@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'pg'
 gem 'inherited_resources'
 
@@ -12,7 +12,8 @@ group :assets do
   gem 'eco'
   gem 'sprockets-commonjs'
 
-  gem 'zurb-foundation', '~> 3.2.2'
+  # zurb foundation
+  gem 'zurb-foundation', '~> 3.2.4'
   gem 'modular-scale'
 end
 
