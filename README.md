@@ -12,25 +12,19 @@
                                           |___|/
 </pre>
 
-Dreamy is a super simple web-application which allows to write your dreams. You can check it by url [dreamyapp.herokuapp.com](http://dreamyapp.herokuapp.com/).
-This app was developed as an example of usage [backbone.offline](https://github.com/Ask11/backbone.offline) library. 
+Dreamy is a simple web-application to write your dreams. It's available by url [dreamyapp.herokuapp.com](http://dreamyapp.herokuapp.com/).
+This app was developed as an example for my libraries: [backbone.offline](https://github.com/Ask11/backbone.offline) and [backbone.position](https://github.com/Ask11/backbone.position).
 
-### Interesting features
+### Features
 
-* Full offline HTML5 app;
-* Full keyboard support;
-* Asynchronous event driven application; 
-* Yet another Rails 3.2/Backbone.js/CoffeeScript example;
-* [Zurb foundation](http://foundation.zurb.com/docs/index.php) for design;
-* Example of usage [HTML5 Cache Manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html) in Rails.
+* Works offline;
+* Supports keyboard;
+* Example of event driven application; 
+* Yet another Rails 3.2/Backbone.js/CoffeeScript example, with a super clean code;
+* Uses [Zurb foundation](http://foundation.zurb.com/docs/index.php);
+* Integrates [HTML5 Cache Manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html) to Rails.
 
-### Backbone.offline requirements
-
-1. Add one line to initialize method to [dreams.coffee](https://github.com/Ask11/dreamy/blob/master/app/assets/javascripts/collections/dreams.module.coffee);
-2. Default backbone REST API on server to [dreams_controller.rb](https://github.com/Ask11/dreamy/blob/master/app/controllers/api/dreams_controller.rb);
-3. Model should have `updated_at` field [schema.rb](https://github.com/Ask11/dreamy/blob/master/db/schema.rb).
-
-You can get more information about backbone.offline in [how to use](https://github.com/Ask11/backbone.offline#how-to-use) section.
+Check the source and learn how simple is to write full-featured html5 applications.
 
 ### License
 
