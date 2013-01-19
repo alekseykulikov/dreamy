@@ -17,8 +17,8 @@ describe Api::DreamsController do
       }.to change(Dream, :count).by(1)
     end
 
-    it 'response created' do
-      post :create, format: :json, dream: dream.attributes
+    it 'responses created' do
+      post :create, format: :json, dream: {name: 'New dream'}
       response.status.should == 201
     end
   end
