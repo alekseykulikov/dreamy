@@ -11,9 +11,10 @@ group :assets do
   gem 'jquery-rails'
   gem 'eco'
   gem 'sprockets-commonjs'
+  gem 'backbone-on-rails'
 
   # zurb foundation
-  gem 'zurb-foundation', '~> 3.2.4'
+  gem 'zurb-foundation', '~> 3.2.5'
   gem 'modular-scale'
 end
 
