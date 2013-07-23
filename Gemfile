@@ -12,7 +12,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'eco'
 gem 'sprockets-commonjs'
-gem 'backbone-on-rails'
+gem 'backbone-on-rails', '0.9.10.0'
 
 gem 'compass-rails'
 gem 'zurb-foundation'

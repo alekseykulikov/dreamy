@@ -27,7 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.10)
-    backbone-on-rails (1.0.0.0)
+    backbone-on-rails (0.9.10.0)
       eco
       ejs
       jquery-rails
@@ -140,7 +140,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  backbone-on-rails
+  backbone-on-rails (= 0.9.10.0)
   coffee-rails
   compass-rails
   eco
