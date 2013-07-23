@@ -23,7 +23,7 @@
   * Uses [Zurb foundation](http://foundation.zurb.com/docs/index.php);
   * Integrates [HTML5 Cache Manifest](http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html) to Rails.
 
-  Check the source and learn how to write full-featured html5 apps with [Backbone](http://documentcloud.github.com/backbone/).
+Check the source and learn how to write full-featured html5 apps with [Backbone](http://documentcloud.github.com/backbone/).
 
 ## License
 
