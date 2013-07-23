@@ -1,3 +1,2 @@
 <input type="text" class="input-text" value="<%= @name %>" />
-<span class="handler">drag</span>
 <a href="javascript:;" class="destroy">X</a>

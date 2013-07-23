@@ -9,5 +9,3 @@ module.exports = Dreams = Backbone.Collection.extend
 
   initialize: ->
     @storage = new Offline.Storage('dreams', @, autoPush: true)
-
-_.extend(Dreams::, Backbone.Position)

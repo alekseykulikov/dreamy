@@ -1,4 +1,4 @@
-module.exports = CountView = Backbone.View.extend
+module.exports = Backbone.View.extend
   el: '#count'
   events:
     'click .full' : 'fullSync'

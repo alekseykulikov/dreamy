@@ -1,6 +1,6 @@
 ItemView = require('./item')
 
-module.exports = IndexView = Backbone.View.extend
+module.exports = Backbone.View.extend
   el: '#content'
   events:
     'submit #new_dream'   : 'newDream'
@@ -15,7 +15,6 @@ module.exports = IndexView = Backbone.View.extend
   render: ->
     @$('#dreams').html ''
     @collection.each @addOne
-    @makeSortable()
     @
 
   addOne: (dream) =>
@@ -24,13 +23,8 @@ module.exports = IndexView = Backbone.View.extend
 
   newDream: (event) ->
     event.preventDefault()
-    @collection.createTo 0, { name: @$('#dream_name').val() },
-                            { success: => @$('#dream_name').val('') }
-
-  makeSortable: ->
-    @$('#dreams').sortable().off('sortupdate').on 'sortupdate', (e, ui) =>
-      model = @collection.get $(ui.item).attr('id')
-      @collection.saveTo $(ui.item).index(), model
+    @collection.create { name: @$('#dream_name').val() },
+                       { success: => @$('#dream_name').val('') }
 
   focusOnNew: ->
     @$('#dream_name').focus()
